@@ -1,85 +1,102 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="../images/favicon.png">
-    <title>Ayush Thoren</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-      rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- import three.js -->
-    <script type="importmap">
-        {
-          "imports": {
-            "three": "https://unpkg.com/three/build/three.module.js",
-            "three/addons/": "https://unpkg.com/three/examples/jsm/"
-          }
-        }
-    </script>
-  
-    <script type="module" src="background.js"></script>  
-    <script src="script.js"></script>  
-    <script src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js"></script>
+  <!-- Add the favicon and site title -->
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <title>Ayush Thoren</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <!-- Import the font from google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <!-- Import three.js and its addons -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three/examples/jsm/"
+      }
+    }
+  </script>
 
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
+  <!-- Import local scripts -->
+  <script type="module" src="background.js"></script>
+  <script src="script.js"></script>
 
-  <body>
+  <!-- Import external libraries through CDNs -->
+  <script src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
-    <canvas id="bg"></canvas>
+  <!-- Import css stylesheet -->
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
 
-    <main>
-      
-      <section>
-        <h1 class="at_logo" data-tilt data-tilt-full-page-listening>at</h1>
-      </section>
+<body>
 
-      <section>
-        <div class="card" data-tilt data-tilt-full-page-listening data-tilt-glare data-tilt-max-glare="0.1">
-          <div class="card-bg"></div>
-          <div class="card-content">
-            <h1 class="card-heading card-text">About Me</h1>
-            <p class="card-subheading card-text">
-              I'm Ayush, a software engineer specializing in Python and JavaScript.
-              Growing up immersed in technology, I bring a fresh, innovative perspective to my work.
-              I'm eager to leverage my skills and innovative mindset to contribute to the future of technology.
-            </p>
-          </div>
+  <!-- three.js canvas -->
+  <canvas id="bg"></canvas>
+
+  <main>
+
+    <!-- "at" logo section -->
+    <section>
+      <h1 class="at_logo" data-tilt data-tilt-full-page-listening>at</h1>
+    </section>
+
+    <!-- About Me section -->
+    <section>
+      <div class="card" data-tilt data-tilt-full-page-listening data-tilt-glare data-tilt-max-glare="0.1">
+        <div class="card-bg"></div>
+        <div class="card-content">
+          <h1 class="card-heading card-text">About Me</h1>
+          <p class="card-subheading card-text">
+            I'm Ayush, a software engineer specializing in Python and JavaScript.
+            Growing up immersed in technology, I bring a fresh, innovative perspective to my work.
+            I'm eager to leverage my skills and innovative mindset to contribute to the future of technology.
+          </p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section>
-        <div class="card" data-tilt data-tilt-full-page-listening data-tilt-glare data-tilt-max-glare="0.1">
-          <div class="card-bg"></div>
-          <div class="card-content">
-            <h1 class="card-heading card-text">Get In Touch</h1>
-            <p class="card-subheading card-text">
-              Feel free to contact me and say hi!
-            </p>
+    <!-- Contact/Socials section -->
+    <section>
+      <div class="card" data-tilt data-tilt-full-page-listening data-tilt-glare data-tilt-max-glare="0.1">
+        <div class="card-bg"></div>
+        <div class="card-content">
+          <h1 class="card-heading card-text">Get In Touch</h1>
+          <p class="card-subheading card-text">
+            Feel free to contact me and say hi!
+          </p>
 
-            <img src="../images/icons/github.svg" class="icon" onclick="window.open('https://github.com/ayushthoren','_blank')">
-            <img src="../images/icons/linkedin.svg" class="icon" onclick="window.open('https://www.linkedin.com/in/ayush-thoren-6049772a9/','_blank')">
-            <img src="../images/icons/youtube.svg" class="icon" onclick="window.open('https://youtube.com/@ayushthoren','_blank')">
+          <!-- Clickable social icons -->
+          <img src="../images/icons/github.svg" class="icon"
+            onclick="window.open('https://github.com/ayushthoren','_blank')">
+          <img src="../images/icons/linkedin.svg" class="icon"
+            onclick="window.open('https://www.linkedin.com/in/ayush-thoren-6049772a9/','_blank')">
+          <img src="../images/icons/youtube.svg" class="icon"
+            onclick="window.open('https://youtube.com/@ayushthoren','_blank')">
 
-            <a class="card-text email" href="mailto:ayushthoren@gmail.com" target="_blank">
-              ayushthoren@gmail.com
-            </a>
+          <!-- mailto: email link -->
+          <a class="card-text email" href="mailto:ayushthoren@gmail.com" target="_blank">
+            ayushthoren@gmail.com
+          </a>
 
-          </div>
         </div>
-      </section>
-      
-      <div class="end-margin"></div>
-    </main>
+      </div>
+    </section>
 
+    <!-- End margin to add more scrollable space -->
+    <div class="end-margin"></div>
+  </main>
+
+  <!-- Import the tilt.js library -->
   <script src="lib/tilt.js"></script>
-  </body>
+</body>
+
 </html>
