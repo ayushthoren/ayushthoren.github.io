@@ -1,6 +1,7 @@
 /* Set some universal things like the font and scroll behavior */
 html,
 body {
+    background-color: black;
     height: 100%;
     height: 100lvh;
     scroll-behavior: smooth;
@@ -8,6 +9,11 @@ body {
     padding: 0;
     margin: 0;
     font-family: "Space Mono", monospace;
+}
+
+/* Hide the body when the page is still loading */
+body.loading main {
+    display: none;
 }
 
 /* Reset some positioning */

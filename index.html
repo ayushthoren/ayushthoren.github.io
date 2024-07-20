@@ -37,7 +37,7 @@
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
+<body class="loading">
 
   <!-- three.js canvas -->
   <canvas id="bg"></canvas>
@@ -57,7 +57,7 @@
           <h1 class="card-heading card-text">About Me</h1>
           <p class="card-subheading card-text">
             I'm Ayush, a software engineer specializing in Python and JavaScript.
-            Growing up immersed in technology, I bring a fresh, innovative perspective to my work.
+            Having grown up immersed in technology, I bring a fresh, innovative perspective to my work.
             I'm eager to leverage my skills and innovative mindset to contribute to the future of technology.
           </p>
         </div>
@@ -78,7 +78,7 @@
           <img src="../images/icons/github.svg" class="icon"
             onclick="window.open('https://github.com/ayushthoren','_blank')">
           <img src="../images/icons/linkedin.svg" class="icon"
-            onclick="window.open('https://www.linkedin.com/in/ayush-thoren-6049772a9/','_blank')">
+            onclick="window.open('https://www.linkedin.com/in/ayushthoren','_blank')">
           <img src="../images/icons/youtube.svg" class="icon"
             onclick="window.open('https://youtube.com/@ayushthoren','_blank')">
 
@@ -97,6 +97,13 @@
 
   <!-- Import the tilt.js library -->
   <script src="lib/tilt.js"></script>
+
+  <!-- Show the body when the page has fully loaded -->
+  <script>
+    window.addEventListener('load', () => {
+      document.body.classList.remove('loading');
+    });
+  </script>
 </body>
 
 </html>
