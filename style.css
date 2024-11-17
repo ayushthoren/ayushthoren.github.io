@@ -71,7 +71,7 @@ section {
 .end-margin {
     height: 25vh;
     height: 25lvh;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0); 
 }
 
 /* "at" logo formatting */
@@ -127,7 +127,8 @@ section {
     transform-style: preserve-3d;
 }
 
-/* Blurry background for the cards, not currently functioning afaik */
+/* Blurry background for the cards, not currently functioning. */
+/* The 3d transformations used with vanilla-tilt.js don't work with the backdrop-filter property. */
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     .card-bg {
         -webkit-backdrop-filter: blur(10px);
