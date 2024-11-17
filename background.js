@@ -1,16 +1,11 @@
 // Import three.js
 import * as THREE from 'three';
 // Import addons for three.js (fps monitor, bloom effect stuff)
-import Stats from 'three/addons/libs/stats.module.js';
+import Stats from 'stats-gl';
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
-
-// Uncomment the appendChild function call to show the fps monitor
-const stats = new Stats()
-stats.showPanel(0)
-// document.body.appendChild(stats.dom)
 
 // Initialize the 3d scene
 const scene = new THREE.Scene();
@@ -21,11 +16,26 @@ scene.add(camera)
 
 // Create the WebGL renderer and add the 3d canvas to the webpage
 const renderer = new THREE.WebGLRenderer({
-    canvas: document.querySelector("#bg"),
+    canvas: document.querySelector('#bg'),
 });
 // Set the size and pixel ratio of the renderer based on the window's dimensions
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
+
+// Initialize the performance profiler
+const stats = new Stats({horizontal:false});
+stats.init(renderer);
+let statsVisible=true
+document.body.appendChild(stats.dom);
+toggleStats()
+
+function toggleStats() {
+    statsVisible = !statsVisible
+    stats.domElement.style.display = statsVisible ? 'block' : 'none';
+}
+
+// Toggle the performance profiler overlay when the "`" key is pressed.
+window.addEventListener('keydown', (event) => {if (event.key === '`') {toggleStats()}});
 
 // Beginning of Lenis (smooth scrolling) code...
 // Easing function for Lenis scroll
@@ -139,9 +149,6 @@ function onWindowResize() {
 
 // Main animation loop
 function animate() {
-    // Begin performance profiling (for the fps monitor)
-    stats.begin()
-
     // Call the onWindowResize function if the window is resized
     window.addEventListener( 'resize', onWindowResize )
 
@@ -152,15 +159,15 @@ function animate() {
     moveCamera()
 
     // Add some slight rotation and backwards movement to the camera to make
-    // The background less boring when the user isn't actively scrolling
+    // the background less boring when the user isn't actively scrolling
     camera.rotation.z+=0.00025
     cameraOffset+=0.005
 
     // Render the scene!
     composer.render(scene, camera);
 
-    // End performance profiling
-    stats.end()
+    // Update the performance profiler
+    stats.update()
 }
 
 // Call the animation function
