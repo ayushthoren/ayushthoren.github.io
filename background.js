@@ -37,31 +37,6 @@ function toggleStats() {
 // Toggle the performance profiler overlay when the "`" key is pressed.
 window.addEventListener('keydown', (event) => {if (event.key === '`') {toggleStats()}});
 
-// Beginning of Lenis (smooth scrolling) code...
-// Easing function for Lenis scroll
-function easeOutCubic(x) {
-    return 1 - Math.pow(1 - x, 3);
-}
-
-const lenis = new Lenis({
-    // Length of scroll animation in seconds
-    duration: 1.5,
-    // Use the custom easing function
-    easing: easeOutCubic,
-})
-
-// Lenis debugging, uncomment to see scroll info in console
-// lenis.on('scroll', (e) => {
-//   console.log(e)
-// })
-
-function raf(time) {
-  lenis.raf(time)
-  requestAnimationFrame(raf)
-}
-requestAnimationFrame(raf)
-// End of Lenis code.
-
 // Create the cubes (not really cubes)
 function generateCubes(amount, radius, length) {
     let cubes = []

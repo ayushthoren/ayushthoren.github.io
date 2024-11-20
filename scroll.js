@@ -3,6 +3,37 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize the ScrollTrigger plugin for the GSAP library
     gsap.registerPlugin(ScrollTrigger);
 
+    // Beginning of Lenis (smooth scrolling) code...
+    // Easing function for Lenis scroll
+    function easeOutCubic(x) {
+        return 1 - Math.pow(1 - x, 3);
+    }
+
+    const lenis = new Lenis({
+        // Length of scroll animation in seconds
+        duration: 1.5,
+        // Use the custom easing function
+        easing: easeOutCubic,
+    })
+
+    // Lenis debugging, uncomment to see scroll info in console
+    // lenis.on('scroll', (e) => {
+    //   console.log(e)
+    // })
+
+    // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
+    lenis.on('scroll', ScrollTrigger.update);
+
+    // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
+    // This ensures Lenis's smooth scroll animation updates on each GSAP tick
+    gsap.ticker.add((time) => {
+    lenis.raf(time * 1000); // Convert time from seconds to milliseconds
+    });
+
+    // Disable lag smoothing in GSAP to prevent any delay in scroll animations
+    gsap.ticker.lagSmoothing(0);
+    // End of Lenis code.
+
     // Get all of the sections of the webpage
     const sections = document.querySelectorAll('section');
 
@@ -28,10 +59,3 @@ document.addEventListener('DOMContentLoaded', () => {
         );
     });
 });
-
-// Failed scroll snapping custom behavior function
-// I'll keep it here for now in case I want to attempt it again
-function scrollSnapBehavior(x) {
-    if (0.4 <= x && x <= 0.6) { return 0.5 }
-    return x;
-}
