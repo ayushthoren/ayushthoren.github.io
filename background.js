@@ -37,36 +37,40 @@ function toggleStats() {
 // Toggle the performance profiler overlay when the "`" key is pressed.
 window.addEventListener('keydown', (event) => {if (event.key === '`') {toggleStats()}});
 
-// Create the cubes (not really cubes)
-function generateCubes(amount, radius, length) {
-    let cubes = []
-    for(let i=0; i<amount; i++) {
-        // Create the mesh and material for the cube
-        const geometry = new THREE.BoxGeometry(1,1,3)
-        const material = new THREE.MeshStandardMaterial({color:0x005eb0})
-        const cube = new THREE.Mesh(geometry, material)
-        
-        // Place the cube in a random position along a cylinder's surface
+// Create the beams
+function generateBeams(amount, radius, length) {
+    // Create the mesh and material for the beam
+    const geometry = new THREE.BoxGeometry(1,1,3)
+    const material = new THREE.MeshStandardMaterial({color:0x005eb0})
+
+    // Create an instancedMesh containing the beam geometry
+    const instancedMesh = new THREE.InstancedMesh(geometry, material, amount);
+
+    for(let i=0; i<amount; i++) {        
+        // Place the beam in a random position along a cylinder's surface
         const radians = (Math.random()*360)*(Math.PI/180)
         const x = Math.cos(radians)*radius
         const y = Math.sin(radians)*radius
         const z = Math.random()*length
 
-        cube.position.set(x,y,z)
+        // Create a transformation matrix for this instance
+        const matrix = new THREE.Matrix4();
+        matrix.setPosition(x, y, z);
 
-        // Add the cube to the list of cubes
-        cubes.push(cube)
+        // Apply the transformation matrix to the instance
+        instancedMesh.setMatrixAt(i, matrix);
     }
-    return cubes
+
+    // Prevent unnecessary calculations
+    instancedMesh.matrixAutoUpdate = false
+    instancedMesh.matrixWorldAutoUpdate = false
+
+    return instancedMesh
 }
 
-// Call the function to initialize the cubes
-const cubes = generateCubes(2500, 25, 1000)
-
-// Go through the cubes and add each one to the scene
-cubes.forEach(cube=>{
-    scene.add(cube)
-})
+// Call the function to initialize the beams
+const beams = generateBeams(2500, 25, 1000)
+scene.add(beams)
 
 // Create the lighting for the scene
 const pointLight = new THREE.PointLight(0xFFFFFF)
