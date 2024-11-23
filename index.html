@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Add the favicon and site title -->
-  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="icon" type="image/png" href="../favicon.png">
   <title>Ayush Thoren</title>
 
   <!-- Import the font from google fonts -->
@@ -14,25 +14,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-  <!-- Import three.js and its addons -->
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "https://unpkg.com/three/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three/examples/jsm/",
-        "stats-gl": "https://cdn.jsdelivr.net/npm/stats-gl@2.2.8/dist/main.js"
-      }
-    }
-  </script>
-
   <!-- Import local scripts -->
   <script type="module" src="background.js"></script>
-  <script src="scroll.js"></script>
-
-  <!-- Import external libraries through CDNs -->
-  <script src="https://unpkg.com/lenis@1.1.5/dist/lenis.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script type="module" src="scroll.js"></script>
 
   <!-- Import css stylesheet -->
   <link href="style.css" rel="stylesheet" type="text/css" />
@@ -76,11 +60,11 @@
           </p>
 
           <!-- Clickable social icons -->
-          <img src="../images/icons/github.svg" class="icon"
+          <img src="../icons/github.svg" class="icon"
             onclick="window.open('https://github.com/ayushthoren','_blank')">
-          <img src="../images/icons/linkedin.svg" class="icon"
+          <img src="../icons/linkedin.svg" class="icon"
             onclick="window.open('https://www.linkedin.com/in/ayushthoren','_blank')">
-          <img src="../images/icons/youtube.svg" class="icon"
+          <img src="../icons/youtube.svg" class="icon"
             onclick="window.open('https://youtube.com/@ayushthoren','_blank')">
 
           <!-- mailto: email link -->
@@ -96,8 +80,8 @@
     <div class="end-margin"></div>
   </main>
 
-  <!-- Import the tilt.js library -->
-  <script src="lib/tilt.js"></script>
+  <!-- Import the vanilla-tilt.js library -->
+  <script type="text/javascript" src="vanilla-tilt.js"></script>
 
   <!-- Show the body when the page has fully loaded -->
   <script>

@@ -8,7 +8,7 @@ body {
     user-select: none;
     padding: 0;
     margin: 0;
-    font-family: "Space Mono", monospace;
+    font-family: 'Space Mono', monospace;
 }
 
 /* Hide the body when the page is still loading */
@@ -165,7 +165,7 @@ section {
     scale: 1.05;
 }
 
-/* LENIS CSS (SMOOTH SCROLLING LIBRARY) */
+/* Lenis classes (smooth scrolling library) */
 .lenis.lenis-smooth {
     scroll-behavior: auto !important;
 }

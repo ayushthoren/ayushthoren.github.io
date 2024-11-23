@@ -1,3 +1,7 @@
+import Lenis from "lenis";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
 // Code to handle the animation of elements as they scroll into view
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize the ScrollTrigger plugin for the GSAP library
